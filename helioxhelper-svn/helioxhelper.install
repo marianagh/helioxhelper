@@ -1,0 +1,19 @@
+createRahisiDB(){
+    if [ "$LANG" = C ]; then
+        LANG=es_ES.UTF-8  rahisi-config-update-apps 
+    else    
+        rahisi-config-update-apps
+    fi
+}
+
+post_install() {
+    createRahisiDB
+}
+
+post_upgrade() {
+    createRahisiDB
+}
+
+post_remove(){
+    rm -fr /usr/share/helioxhelper
+}
