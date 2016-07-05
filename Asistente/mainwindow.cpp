@@ -1,15 +1,19 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "boton.h"
 #include <QFileDialog>
 #include <QFile>
 #include <QMessageBox>
 #include <QTextStream>
+#include <QIcon>
 
+Boton *boton;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
 }
 
 MainWindow::~MainWindow()
@@ -21,7 +25,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_selectSpeech_clicked()
 {
-    QString fileName = QFileDialog::getOpenFileName(this, tr("Abrir Archivo"), QString(), tr("Archivos de Audio (*.ogg)"));
+    QString fileName = QFileDialog::getOpenFileName(this, tr("Abrir Archivo"), QString(), tr("Archivos de Audio (*.ogg *.mp3)"));
 
     if (!fileName.isEmpty()) {
         QFile file (fileName);
@@ -30,6 +34,7 @@ void MainWindow::on_selectSpeech_clicked()
             return;
         }
         QTextStream in(&fileName);
+        boton->setAudio(fileName);
         ui->speechName->setText(in.readAll());
         file.close();
     }
@@ -47,6 +52,7 @@ void MainWindow::on_selectApp_clicked()
             return;
         }
         QTextStream in(&programName);
+        boton->setAplicacionRuta(programName);
         ui->appNameExe->setText(in.readAll());
         file.close();
     }
@@ -63,7 +69,17 @@ void MainWindow::on_selectIcon_clicked()
             return;
         }
         QTextStream in(&iconName);
-        ui->appNameExe->setText(in.readAll());
+        boton->setIcono(QIcon::QIcon( iconName));
+        ui->appIcon->setText(in.readAll());
         file.close();
+    }
 }
+
+void MainWindow::on_buttonBox_accepted()
+{
+boton->setNombre(ui->appName->text());
+boton->setDescripcion(ui->appDescription->toPlainText());
+boton->setLenguaje(ui->comboBox->currentText());
+QMessageBox::information(this, tr("Exito"), tr("Se ha gregado."));
+return;
 }

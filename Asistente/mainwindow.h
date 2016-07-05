@@ -22,6 +22,8 @@ private slots:
 
     void on_selectIcon_clicked();
 
+    void on_buttonBox_accepted();
+
 private:
     Ui::MainWindow *ui;
 };
