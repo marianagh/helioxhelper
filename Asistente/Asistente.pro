@@ -13,8 +13,8 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    boton.cpp
+    addNew.cpp \
+    Button.cpp
 
 HEADERS  += mainwindow.h \
     boton.h

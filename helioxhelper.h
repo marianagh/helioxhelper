@@ -21,6 +21,7 @@
 //#include <qtsingleclass
 #include <qactionwithevents.h>
 #include <wideiconsmenu.h>
+#include <addnew.h>
 //#include <QFrame>
 
 namespace Ui {

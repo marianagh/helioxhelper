@@ -13,6 +13,7 @@
 #include <QApplication>
 #include <QTimer>
 
+
 extern QProcess *readcommand;
 extern bool pulseaudio;
 

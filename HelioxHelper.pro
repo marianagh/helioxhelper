@@ -22,7 +22,9 @@ SOURCES += main.cpp\
     SingleApplication.cpp \
     qactionwithevents.cpp \
     wideiconsmenu.cpp \
-    addnew.cpp
+    button.cpp \
+    writeconfig.cpp \
+    Asistente/addNew.cpp
 
 HEADERS  += helioxhelper.h \
     writeConfig.h \
@@ -30,11 +32,14 @@ HEADERS  += helioxhelper.h \
     SingleApplication.h \
     qactionwithevents.h \
     wideiconsmenu.h \
-    addnew.h
+    addnew.h \
+    button.h \
+    writeconfig.h \
+    Asistente/mainwindow.h
 
 FORMS    += helioxhelper.ui \
     about.ui \
-    addnew.ui
+    Asistente/mainwindow.ui
 
 RESOURCES += \
     Resource.qrc
